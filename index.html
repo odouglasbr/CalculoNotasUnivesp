@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora de Notas Univesp</title>
+    <title>Calculadora de Porcentagem</title>
     <style>
         body {
             font-family: sans-serif;
@@ -60,11 +60,15 @@
 
     <script>
         function calcularPorcentagens() {
-            const n1 = parseFloat(document.getElementById('decimalN1').value);
-            const n2 = parseFloat(document.getElementById('decimalN2').value);
+            const n1Input = document.getElementById('decimalN1'); // Correção: Pegar o elemento input
+            const n2Input = document.getElementById('decimalN2'); // Correção: Pegar o elemento input
+            const resultadoDiv = document.getElementById('resultado');
+
+            const n1 = parseFloat(n1Input.value); // Correção: Pegar o valor do input
+            const n2 = parseFloat(n2Input.value); // Correção: Pegar o valor do input
 
             if (isNaN(n1) || isNaN(n2)) {
-                document.getElementById('resultado').textContent = "Por favor, insira números válidos.";
+                resultadoDiv.textContent = "Por favor, insira números válidos.";
                 return;
             }
 
@@ -72,7 +76,7 @@
             const porcentagemN2 = n2 * 0.60; // 60%
             const soma = porcentagemN1 + porcentagemN2;
 
-            document.getElementById('resultado').textContent = `40% de ${n1} = ${porcentagemN1.toFixed(2)}, 60% de ${n2} = ${porcentagemN2.toFixed(2)}. Soma = ${soma.toFixed(2)}`;
+            resultadoDiv.textContent = `40% de ${n1} = ${porcentagemN1.toFixed(2)}, 60% de ${n2} = ${porcentagemN2.toFixed(2)}. Soma = ${soma.toFixed(2)}`;
         }
     </script>
 </body>
